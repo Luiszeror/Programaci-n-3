@@ -1,0 +1,14 @@
+# ninja log v5
+0	508	1698683007198454299	CMakeFiles/prjHerencia.dir/main.cpp.o	b3a8a161a57643c3
+1	518	1698683007209755119	CMakeFiles/prjHerencia.dir/Employee.cpp.o	8db7418b36e320ed
+1	518	1698683007209602356	CMakeFiles/prjHerencia.dir/EmployeeTemp.cpp.o	f3951ddfedd8d787
+518	585	1698683007280918029	prjHerencia	a4f9d1a99b5e344
+4	593	1698683127847966240	CMakeFiles/prjHerencia.dir/main.cpp.o	b3a8a161a57643c3
+5	599	1698683127856533426	CMakeFiles/prjHerencia.dir/EmployeeTemp.cpp.o	f3951ddfedd8d787
+599	661	1698683127922244198	prjHerencia	a4f9d1a99b5e344
+2	469	1698683177939034455	CMakeFiles/prjHerencia.dir/EmployeeTemp.cpp.o	f3951ddfedd8d787
+469	536	1698683178009409650	prjHerencia	a4f9d1a99b5e344
+2	493	1698683336839308286	CMakeFiles/prjHerencia.dir/EmployeeTemp.cpp.o	f3951ddfedd8d787
+493	565	1698683336913528608	prjHerencia	a4f9d1a99b5e344
+1	478	1698683392692736619	CMakeFiles/prjHerencia.dir/EmployeeTemp.cpp.o	f3951ddfedd8d787
+478	584	1698683392802553487	prjHerencia	a4f9d1a99b5e344
