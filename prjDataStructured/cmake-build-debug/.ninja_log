@@ -1,0 +1,6 @@
+# ninja log v5
+427	471	1699649300176936662	prjDataStructured	555802369413540f
+14	326	7217699617870718	CMakeFiles/prjDataStructured.dir/LinkedList.cpp.obj	ab80e164dcc0288
+28	1628	7217664037507997	CMakeFiles/prjDataStructured.dir/Dish.cpp.obj	7eee3e0be5701934
+675	839	7217701783690477	prjDataStructured.exe	fb8f2ce5ecd5b60
+5	675	7217701782091447	CMakeFiles/prjDataStructured.dir/main.cpp.obj	5dd2ec8df6603ba7
