@@ -1,3 +1,15 @@
 # ninja log v5
 1	2113	7232376371198344	CMakeFiles/TallerListaDobleEnlazadaC__.dir/main.cpp.obj	cf695cf427b46323
 2117	2697	7232376376965950	TallerListaDobleEnlazadaC__.exe	2f74c7d02140333
+22	1548	7233519118177078	build.ninja	8b183ca2923a5b5e
+55	3453	7233519157057958	CMakeFiles/TallerListaDobleEnlazadaC__.dir/Phone.cpp.obj	5da12c02e6df708
+6	1718	7233519248707736	CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj	156efb8ca2e3cbda
+1719	3133	7233519262750513	TallerListaDobleEnlazadaC__.exe	e5e335780ed61cf2
+8	673	7233523103739751	CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj	156efb8ca2e3cbda
+674	877	7233523105741356	TallerListaDobleEnlazadaC__.exe	e5e335780ed61cf2
+8	2728	7233609886926742	CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj	156efb8ca2e3cbda
+2729	3653	7233609896558594	TallerListaDobleEnlazadaC__.exe	e5e335780ed61cf2
+5	850	7233611965193523	CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj	156efb8ca2e3cbda
+851	1440	7233611971008701	TallerListaDobleEnlazadaC__.exe	e5e335780ed61cf2
+7	726	7233626315348761	CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj	156efb8ca2e3cbda
+727	1081	7233626318789371	TallerListaDobleEnlazadaC__.exe	e5e335780ed61cf2
