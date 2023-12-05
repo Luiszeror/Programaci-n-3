@@ -23,6 +23,7 @@ public:
     void showPhone(const string);
     void deletePhone(const string);
     int sizePhone();
+    bool findNodeExist(const string);
     std::vector<Phone> getPhones(bool sw);
 
     ~HandlingPhone() override;

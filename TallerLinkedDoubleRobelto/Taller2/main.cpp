@@ -63,14 +63,19 @@ int main() {
                                 cout <<"\nAgregar antes de: ";
                                 cout<<"Ingrese el id del telefono al cual quiere agregar antes: ";
                                 cin>>find;
-                                hP.findPhone(find,createObject(),1);
+
+                                if(hP.findNodeExist(find)!=false) {
+                                    hP.findPhone(find, createObject(), 1);
+                                }
 
                                 break;
                             case 4:
                                 cout <<"\nAgregar despues de: ";
                                 cout<<"Ingrese el id del telefono al cual quiere agregar despues: ";
                                 cin>>find;
-                                hP.findPhone(find,createObject(),2);
+                                if(hP.findNodeExist(find)!=false) {
+                                    hP.findPhone(find, createObject(), 2);
+                                }
                                 break;
                             case 5:
                                 cout <<"\nAgregar Ordenadamente: ";
@@ -91,7 +96,7 @@ int main() {
                     break;
                 case 2:
 
-                    cout << "Seleccione una opcion: \n1. Ver primero\n2. Ver Ultimo\n3. Ver Lista descendente\n4. Ver lista ascendete\n5. Volver";
+                    cout << "Seleccione una opcion: \n1. Ver primero\n2. Ver Ultimo\n3. Ver Lista ascendente\n4. Ver lista descendete\n5. Volver";
                     try {
                         cin >> op3;
 
@@ -274,3 +279,4 @@ Phone createObject() {
     return phone;
 
 }
+//actualizado

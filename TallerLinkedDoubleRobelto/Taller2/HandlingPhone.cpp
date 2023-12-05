@@ -167,3 +167,12 @@ int HandlingPhone::sizePhone() {
 HandlingPhone::~HandlingPhone() {
 
 }
+
+bool HandlingPhone::findNodeExist(const string encontrar) {
+    if(findInfo(encontrar) != nullptr){
+       return true;
+    }else{
+        cout <<"El id no existe :(\n";
+        return false;
+    }
+}
