@@ -84,15 +84,15 @@ ostream &operator<<(ostream &os, const Phone &phone) {
     }
     os <<"\n------------------------------------------"
          "\nLas Especificaciones del telefono son: \n"
-    <<"Id del telefono: " << phone.id<<"\n"
-    <<"Nombre de la marca: " << phone.markName<<"\n"
-    <<"Memoria RAM: " << phone.RAM <<"GBs\n"
-    <<"Almacenamiento (ROM): " << phone.ROM<<"GBs\n"
-    <<"Compabilidad 5G: " << a <<"\n"
-    <<"Capacidad de la bateria: " << phone.battery <<"mAh\n"
-    <<"Anio de lanzamiento: " << phone.year<<"\n"
-    <<"Vida util de la bateria: "<< phone.utilLife<<" anio(s)\n"
-    <<"\n------------------------------------------";
+       <<"Id del telefono: " << phone.id<<"\n"
+       <<"Nombre de la marca: " << phone.markName<<"\n"
+       <<"Memoria RAM: " << phone.RAM <<"GBs\n"
+       <<"Almacenamiento (ROM): " << phone.ROM<<"GBs\n"
+       <<"Compabilidad 5G: " << a <<"\n"
+       <<"Capacidad de la bateria: " << phone.battery <<"mAh\n"
+       <<"Anio de lanzamiento: " << phone.year<<"\n"
+       <<"Vida util de la bateria: "<< phone.utilLife<<" anio(s)\n"
+       <<"\n------------------------------------------";
     return os;
 }
 

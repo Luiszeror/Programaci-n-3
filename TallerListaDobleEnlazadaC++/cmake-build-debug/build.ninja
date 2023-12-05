@@ -67,6 +67,12 @@ build CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj: CXX_COMPI
   OBJECT_DIR = CMakeFiles\TallerListaDobleEnlazadaC__.dir
   OBJECT_FILE_DIR = CMakeFiles\TallerListaDobleEnlazadaC__.dir
 
+build CMakeFiles/TallerListaDobleEnlazadaC__.dir/HandlingPhone.cpp.obj: CXX_COMPILER__TallerListaDobleEnlazadaC___unscanned_Debug C$:/Users/Esteban/Desktop/Programaci-n-3/TallerListaDobleEnlazadaC++/HandlingPhone.cpp || cmake_object_order_depends_target_TallerListaDobleEnlazadaC__
+  DEP_FILE = CMakeFiles\TallerListaDobleEnlazadaC__.dir\HandlingPhone.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TallerListaDobleEnlazadaC__.dir
+  OBJECT_FILE_DIR = CMakeFiles\TallerListaDobleEnlazadaC__.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TallerListaDobleEnlazadaC__
@@ -75,7 +81,7 @@ build CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj: CXX_COMPI
 #############################################
 # Link the executable TallerListaDobleEnlazadaC__.exe
 
-build TallerListaDobleEnlazadaC__.exe: CXX_EXECUTABLE_LINKER__TallerListaDobleEnlazadaC___Debug CMakeFiles/TallerListaDobleEnlazadaC__.dir/main.cpp.obj CMakeFiles/TallerListaDobleEnlazadaC__.dir/Phone.cpp.obj CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj
+build TallerListaDobleEnlazadaC__.exe: CXX_EXECUTABLE_LINKER__TallerListaDobleEnlazadaC___Debug CMakeFiles/TallerListaDobleEnlazadaC__.dir/main.cpp.obj CMakeFiles/TallerListaDobleEnlazadaC__.dir/Phone.cpp.obj CMakeFiles/TallerListaDobleEnlazadaC__.dir/LinkedDouble.cpp.obj CMakeFiles/TallerListaDobleEnlazadaC__.dir/HandlingPhone.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TallerListaDobleEnlazadaC__.dir

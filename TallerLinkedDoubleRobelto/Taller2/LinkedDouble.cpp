@@ -65,15 +65,18 @@ void LinkedDouble<T>::addNodeLast(T info) {
 template<class T>
 void LinkedDouble<T>::addNodeFirst(T info) {
 
-    Node<T>* newNode = new Node<T>(info);
-    if ( isEmpty( ) ){
-        head = newNode;
-        last = newNode;
+    if(isEmpty()){
+
+        head = last = new Node<T>(info);
     }else{
+
+        Node<T> *newNode = new Node<T>(info);
+
+        newNode->next=head;
         head->previous = newNode;
-        newNode->next = head;
         head = newNode;
     }
+
 }
 
 template <class T>
@@ -141,48 +144,23 @@ Node<T> *LinkedDouble<T>::findNode(std::string criteria) {
 }
 
 template<class T>
-T* LinkedDouble<T>::findInfo(std::string& criteria) {
-    Node<T>* current = head;
+T *LinkedDouble<T>::findInfo(const std::string &id) {
+    Node<T> *aux = head;
 
-    while (current != nullptr) {
-        if (current->info.getId() == criteria) {
-            return &(current->info);
+    while(aux != NULL){
+
+        if(aux->info.getId().compare(id)==0){
+
+
+            return &aux->info;
         }
 
-        current = current->next;
+        aux = aux->next;
     }
 
-    return nullptr;
+    return NULL;
 }
 
-template<class T>
-T LinkedDouble<T>::deleteNode(Node<T>* targetNode) {
-    if (targetNode == nullptr) {
-        throw std::invalid_argument("Error: El nodo objetivo es nulo.");
-    }
-
-    if (isEmpty()) {
-        throw std::runtime_error("Error: La lista está vacía.");
-    }
-
-    T deletedInfo = targetNode->info;
-
-    if (targetNode->previous != nullptr) {
-        targetNode->previous->next = targetNode->next;
-    } else {
-        head = targetNode->next;
-    }
-
-    if (targetNode->next != nullptr) {
-        targetNode->next->previous = targetNode->previous;
-    } else {
-        last = targetNode->previous;
-    }
-
-    delete targetNode;
-
-    return deletedInfo;
-}
 
 template<class T>
 int LinkedDouble<T>::getSize()  {
@@ -197,39 +175,24 @@ int LinkedDouble<T>::getSize()  {
     return count;
 }
 
-template<class T>
-T* LinkedDouble<T>::getObject(int index) {
-    if (index < 0) {
-        return nullptr;
-    }
 
-    int count = 0;
-    Node<T>* current = head;
-
-    while (current != nullptr && count < index) {
-        current = current->next;
-        count++;
-    }
-
-    return (current != nullptr) ? &(current->info) : nullptr;
-}
 
 template<class T>
-T* LinkedDouble<T>::getFirst() {
+T LinkedDouble<T>::getFirst() {
     if (head != nullptr) {
         return head->info;
     } else {
 
-        return *T();
+        return T();
     }
 }
 
 template<class T>
-T* LinkedDouble<T>::getLast(){
+T LinkedDouble<T>::getLast(){
     if (last != nullptr) {
         return last->info;
     } else {
-        return *T();
+        return T();
     }
 }
 
@@ -244,4 +207,43 @@ LinkedDouble<T>::LinkedDouble() {
     head = NULL;
     last = NULL;
 
+}
+template<class T>
+T LinkedDouble<T>::getObjectById(const std::string& id) {
+    Node<T>* current = head;
+
+    while (current != nullptr) {
+        if (current->info.getId() == id) {
+            return current->info;
+        }
+        current = current->next;
+    }
+
+    throw std::runtime_error("Error: Objeto no encontrado con el ID especificado.");
+}
+
+template<class T>
+void LinkedDouble<T>::deleteNodeById(const std::string& id) {
+    Node<T>* targetNode = findNode(id);
+
+    if (targetNode != nullptr) {
+        Node<T>* previousNode = targetNode->previous;
+        Node<T>* nextNode = targetNode->next;
+
+        if (previousNode != nullptr) {
+            previousNode->next = nextNode;
+        } else {
+            head = nextNode;
+        }
+
+        if (nextNode != nullptr) {
+            nextNode->previous = previousNode;
+        } else {
+            last = previousNode;
+        }
+
+        delete targetNode;
+    } else {
+        throw std::runtime_error("Error: Objeto no encontrado con el ID especificado.");
+    }
 }

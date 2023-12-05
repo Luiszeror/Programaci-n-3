@@ -5,7 +5,6 @@
 #include "LinkedDouble.h"
 
 
-
 using namespace std;
 
 Phone createObject();
@@ -16,15 +15,13 @@ int main() {
     Phone myPhone;
     HandlingPhone hP;
     string find, delet;
-    LinkedDouble<Phone>* linkedDouble= new LinkedDouble<Phone>();
-
 
     cout << "-------------------------------------------------------\n"
             "Bienvenido al sistema de gestion de telefonos celulares\n";
 
     while (op != 5) {
         cout <<"-------------------------------------------------------\n"
-        "Digite una opcion:\n1. Agregar Telefono\n2. Ver Telefonos\n3. Buscar Telefono\n4. Eliminar Telefono\n5. Salir";
+               "Digite una opcion:\n1. Agregar Telefono\n2. Ver Telefonos\n3. Buscar Telefono\n4. Eliminar Telefono\n5. Salir";
 
         try {
             cin >> op;
@@ -52,36 +49,39 @@ int main() {
 
                                 cout <<"\nAgregar Primero: ";
                                 myPhone=createObject();
-                                cout<< myPhone;
+                                hP.addPhone(myPhone, 1);
 
                                 break;
                             case 2:
                                 cout << "\nAgregar Ultimo: ";
-                                myPhone = createObject();
-                                cout << myPhone;
+                                myPhone=createObject();
+                                hP.addPhone(myPhone, 2);
                                 break;
 
                                 break;
                             case 3:
                                 cout <<"\nAgregar antes de: ";
-                                myPhone=createObject();
-                                cout<< myPhone;
+                                cout<<"Ingrese el id del telefono al cual quiere agregar antes: ";
+                                cin>>find;
+                                hP.findPhone(find,createObject(),1);
+
                                 break;
                             case 4:
                                 cout <<"\nAgregar despues de: ";
-                                myPhone=createObject();
-                                cout<< myPhone;
+                                cout<<"Ingrese el id del telefono al cual quiere agregar despues: ";
+                                cin>>find;
+                                hP.findPhone(find,createObject(),2);
                                 break;
                             case 5:
-                                cout <<"\nAgregar Primero: ";
+                                cout <<"\nAgregar Ordenadamente: ";
                                 myPhone=createObject();
-                                cout<< myPhone;
+                                hP.addPhone(myPhone, 3);
                                 break;
                             case 6:
                                 // Volver
                                 continue;
                             default:
-                                cout << "Digite una opcion valida" << endl;
+                                cerr << "Digite una opcion valida" << endl;
                         }
                     } catch (const exception& e) {
                         cout << e.what() << endl;
@@ -103,23 +103,44 @@ int main() {
 
                             case 1:
 
-                                cout << "Ver Primero: ";
+                                cout << "\nVer Primero: ";
+                                hP.getFirstLast(1);
 
                                 break;
 
                             case 2:
                                 cout << "Ver Ultimo: ";
+                                hP.getFirstLast(2);
 
                                 break;
 
                             case 3:
-                                cout << "Ver Lista descendente: ";
+                                cout << "\nVer Lista primero-ultimo : \n";
+
+
+
+                                if(hP.sizePhone()==0){
+                                    cerr <<"\nLa lista esta vacia";
+                                }
+                                else {
+                                    for (Phone c: hP.getPhones(true)) {
+                                        cout << c << endl;
+                                    }
+                                }
 
                                 break;
 
                             case 4:
-                                cout << "Ver Lista ascendente: ";
+                                cout << "\nVer Lista ultimo-primero: \n";
 
+                                if(hP.sizePhone()==0){
+                                    cerr <<"\nLa lista esta vacia";
+                                }
+                                else {
+                                    for (Phone c: hP.getPhones(false)) {
+                                        cout << c << endl;
+                                    }
+                                }
                                 break;
 
                             case 5:
@@ -140,13 +161,16 @@ int main() {
                     break;
                 case 3:
 
-                    cout <<"Buscar telefono:\nIngrese el id del telefono a buscar:";
+                    cout <<"\nBuscar telefono:\nIngrese el id del telefono a buscar:";
                     cin >> find;
+                    hP.showPhone(find);
+
 
                     break;
                 case 4:
                     cout <<"Eliminar telefono:\nIngrese el id del telefono a eliminar:";
                     cin >> delet;
+                    hP.deletePhone(delet);
 
                     break;
                 case 5:
@@ -155,11 +179,11 @@ int main() {
 
                     break;
                 default:
-                    cout << "Digite una opcion valida" << endl;
+                    cerr << "Digite una opcion valida" << endl;
                     getchar();getchar();
             }
         } catch (const exception& e) {
-            cout << "Asegurese de ingresar un valor numero relacionado a las opciones" << endl;
+            cerr << "Asegurese de ingresar un valor numero relacionado a las opciones" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getchar();
@@ -172,6 +196,7 @@ int main() {
 }
 
 Phone createObject() {
+
     Phone phone;
     HandlingPhone hP;
 
@@ -183,41 +208,41 @@ Phone createObject() {
     cout <<"\nIngrese el ID del telefono: ";
 
     while (!(cin >> id) || !hP.twoDigits(id)) {
-        cout << "Ingrese un ID valido (valor numerico): ";
+        cerr << "Ingrese un ID valido (valor numerico): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    id=(id);
+    phone.setId(id);
 
     cout <<"\nIngrese el nombre de la marca del telefono: ";
     while (!(cin >> markName) || !hP.isDigit(markName)) {
-        cout << "Ingrese una marca valida (Sin numeros o simbolos): ";
+        cerr << "Ingrese una marca valida (Sin numeros o simbolos): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    markName=(markName);
+    phone.setMarkName(markName);
 
     cout <<"\nIngrese la memoria RAM del telefono: ";
     while (!(cin >> RAM) || !hP.twoDigits(RAM)) {
-        cout << "Ingrese una RAM valida (valor numerico en GBs): ";
+        cerr << "Ingrese una RAM valida (valor numerico en GBs): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    RAM=(RAM);
+    phone.setRam(RAM);
 
     cout <<"\nIngrese la capacidad de almacenamiento (ROM) del telefono: ";
     while (!(cin >> ROM) || !hP.twoDigits(ROM)) {
-        cout << "Ingrese una ROM valida (valor numerico en GBS): ";
+        cerr << "Ingrese una ROM valida (valor numerico en GBS): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    ROM=(ROM);
+    phone.setRom(ROM);
 
 
     cout <<"\nEl telefono tiene compatibilidad en 5G?:\n1.Si\n2.No ";
     string G5;
     while (!(cin >> G5) || (G5 != "1" && G5 != "2")) {
-        cout << "Entrada no valida. Por favor, ingrese 1 o 2: ";
+        cerr << "Entrada no valida. Por favor, ingrese 1 o 2: ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
@@ -226,26 +251,26 @@ Phone createObject() {
     }else{
         is5G=(false);
     }
+    phone.setIs5G(is5G);
 
     cout <<"\nIngrese la capacidad de bateria del telefono (mAh): ";
     while (!(cin >> battery) || !hP.twoDigits(battery)) {
-        cout << "Ingrese una capacidad valida (valor numerico en mAh): ";
+        cerr << "Ingrese una capacidad valida (valor numerico en mAh): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    battery=(battery);
+    phone.setBattery(battery);
 
     cout <<"\nIngrese el anio de lanzamiento del telefono: ";
     while (!(cin >> year) || !hP.isYear(year)) {
-        cout << "Ingrese un anio valido (Ejemplo: 2002): ";
+        cerr << "Ingrese un anio valido (Ejemplo: 2002): ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    year=(year);
+    phone.setYear(year);
 
-    utillife=( hP.utilLife(year, battery));
-
-
+    phone.setUtilLife( hP.utilLife(year, battery));
 
     return phone;
+
 }

@@ -20,19 +20,19 @@ public:
 
     LinkedDouble();
     bool isEmpty();
-    void addNodeFirst(T info);
-    void addNodeLast(T info);
+    void addNodeFirst(T);
+    void addNodeLast(T);
     vector<T> getList(bool);
-    void addAfterTo(Node<T>* targetNode, T info);
-    void addNodeBeforeTo(Node<T>* targetNode, T info);
-    void addNodeSorted(T info);
+    void addAfterTo(Node<T>* targetNode, T );
+    void addNodeBeforeTo(Node<T>* targetNode, T );
+    void addNodeSorted(T);
     Node<T>* findNode( std::string);
-    T* findInfo( std::string& criteria);
-    T deleteNode(Node<T>* targetNode);
+    T* findInfo(const std::string& criteria);
     int getSize();
-    T* getObject(int index) ;
-    T* getFirst();
-    T* getLast();
+    T getFirst();
+    T getLast();
+    T getObjectById(const std::string& id);
+    void deleteNodeById(const std::string& id);
     virtual ~LinkedDouble();
 
 private:
