@@ -26,13 +26,12 @@ public:
     void addNodeSorted(T info);
     Node<T>* findNode(std::string);
     std :: vector<T> getLinkedListLIst(bool);
-    T deleteNode(Node<T>*);
+    T* deleteNode(Node<T>*);
     int getSize();
     T* getObject(int);
-    T getFirst();
-    T getLast();
+    T* getFirst();
+    T* getLast();
     virtual ~LinkedListList();
-
 
 private:
 
