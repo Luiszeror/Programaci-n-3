@@ -2,6 +2,11 @@ package Test;
 
 import Model.NArioTree;
 import Model.Node;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class NArioTreeTest {
 
@@ -20,14 +25,14 @@ public class NArioTreeTest {
 
     }
 
+    @Test
     void findNode(){
 
         setup();
         assertNotNull(tree.findNode(('T')));
-        assertEquals('T', tree.findNode('T').getInfo());
+        assertEquals('T', tree.findNode('T').getInfo().charValue());
 
-
-
+        
     }
 
 
