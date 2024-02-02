@@ -1,3 +1,4 @@
+//Made by Luis Robelto 2/02/2024
 package Model;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class Vertex <T> {
     private T info;
     private boolean visited;
 
-    private List<T> adyacents;
+    private List<Vertex> adyacents;
 
     public  Vertex (T info){
 
@@ -35,16 +36,16 @@ public class Vertex <T> {
 
     public boolean isAdyacent(Vertex<T> vertex){
 
-        return adyacents.isEmpty() ? false : true;
+        return adyacents.size()!=0;
     }
 
-    public void addVertex( Vertex<T> vertex){
-
-        adyacents.add((T) vertex);
-
+    public void addVertex(Vertex<T> vertex) {
+        if (!adyacents.contains(vertex)) {
+            adyacents.add(vertex);
+        }
     }
 
-    public List<T> getAdyacents(){
+    public List<Vertex> getAdyacents(){
 
         return adyacents;
     }
