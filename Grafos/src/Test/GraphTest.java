@@ -117,4 +117,29 @@ class GraphTest {
         assertFalse( graph.isAdyacent( graph.findVertex('I'),graph.findVertex('J')));
     }
 
+    //En este caso de prueba adicional, se agregan dos nuevos
+    // vértices ('Z' y 'W') y se establecen conexiones adicionales
+    // entre ellos y los vértices existentes. La prueba verifica que
+    // estas conexiones y adyacencias sean correctas según las expectativas.
+    @Test
+    void additionalTestCase() {
+        setupTwo();
+
+        graph.addVertex('Z');
+        graph.addVertex('W');
+
+        graph.addEdge(graph.findVertex('Z'), graph.findVertex('I'), Graph.INDIRECT);
+        graph.addEdge(graph.findVertex('W'), graph.findVertex('Z'), Graph.DIRECT);
+        graph.addEdge(graph.findVertex('W'), graph.findVertex('L'), Graph.DIRECT);
+
+        assertTrue(graph.isAdyacent(graph.findVertex('Z'), graph.findVertex('I')));
+        assertTrue(graph.isAdyacent(graph.findVertex('W'), graph.findVertex('Z')));
+        assertTrue(graph.isAdyacent(graph.findVertex('W'), graph.findVertex('L')));
+
+        assertEquals(1, graph.getAdyacents(graph.findVertex('Z')).size());
+        assertEquals(2, graph.getAdyacents(graph.findVertex('W')).size());
+    }
+
+
+
 }

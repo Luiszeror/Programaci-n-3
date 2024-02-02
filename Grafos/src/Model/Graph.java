@@ -32,7 +32,7 @@ public class Graph <T>{
             return false;
         }
         if (asociacion == DIRECT) {
-            
+
             inicio.addVertex(fin);
         } else if (asociacion == INDIRECT) {
             inicio.addVertex(fin);
