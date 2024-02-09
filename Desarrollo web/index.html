@@ -9,7 +9,81 @@
 <body>
 
     <h1>Ejemplo de Desarrollo Web</h1>
-    <div style="background-color: aqua;width: 400px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quia impedit! Voluptates excepturi mollitia officiis unde consectetur voluptatibus velit delectus quibusdam ipsam ullam, pariatur, earum suscipit? Sequi eum est hic?</div>
-    
+    <div style="background-color: aqua;width: 1000px;">Lorem ipsum dolor sit amet consectetur adipisicing
+         elit. Id, quia impedit! Voluptates excepturi mollitia officiis unde consectetu
+         r voluptatibus velit delectus quibusdam ipsam ullam, pariatur, earum suscipit? Sequi eum est hic?</div>
+    <script>
+        var age= prompt("Edad")
+        age=parseInt(age)
+        age = age +10 
+        var name= prompt("Nombre")
+        alert(`Hello ${name}  you are  ${age} years old!`)
+        age=prompt("edad");
+        if(age>=18){
+            alert("Hi "+name+" Youre an adult!")
+        }else{
+            alert("Hi "+name+" Youre not an adult! :c")
+        }
+        const vector=[234, 5.8, "juan", false, {id:1, city:"Sogamoso"}]
+        console.log(vector)
+        for(var index=0; index<vector.length;index ++){
+
+            
+        }
+        for(item of vector){
+            
+        }
+        vector.forEach(item=>console.log(`El vector contiene: ${item}`))
+
+        const names= new Array()
+
+        names.push("Luis")
+        names.push("Luisa")
+        names.push("Luise")
+        names.push("Luisi")
+        names.push("Luiso")
+        names.push("Luisu")
+
+        const students=[
+            {"id":123, "name":"Luisa", "age":25, "gender":true},
+            {"id":124, "name":"Luise", "age":24, "gender":true},
+            {"id":125, "name":"Luisi", "age":23, "gender":true},
+            {"id":126, "name":"Luiso", "age":22, "gender":true},
+            {"id":127, "name":"Luisu", "age":21, "gender":true},
+            {"id":128, "name":"Luiseh", "age":20, "gender":true}
+
+        ]
+
+        students.forEach(students=>{
+            console.log("---------------------")
+            console.log(students.id)
+            console.log(students.age)
+            console.log(students.name)
+            console.log(students.gender)
+            console.log("---------------------")
+
+        })
+
+        const map = new Map()
+
+        map.set(9,"Sogamoso")
+        map.set(11,"Sogamosa")
+        map.set(12,"Sogamose")
+        map.set(13,"Sogamosi")
+        map.set(10,"Sogamosu")
+        map.set(14,"Sogamos")
+
+        console.log(map)
+
+        const number =[1,2,3,4,5,6,7,8,9,0,1,21,431,5,3656,47,6858,6786,9,546456,4564576,56788]
+
+        const doubleNumber =number.map( num => num * 2 )
+
+
+        console.log(doubleNumber.sort((x,y) => x-y))
+
+        console.log(number.filter(n=> n%2==0))
+
+    </script>
 </body>
 </html>
