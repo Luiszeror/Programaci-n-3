@@ -1,0 +1,15 @@
+#styelelayer{
+
+    background-color: aquamarine;
+    width: 450px;
+    border: 1px solid yellowgreen;
+
+}
+
+.styleSpan{
+
+    color: wheat;
+font-family: 'Courier New', Courier, monospace;
+font-size:  12px;
+
+}
