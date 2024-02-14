@@ -1,71 +1,76 @@
-function eraseContent(){
+function begin(min, max) {
+  const titleTh = document.querySelector("#titleTh");
 
+  const title = document.createTextNode(
+    `Números Primos desde ${min} hasta ${max}`
+  );
 
-const layer= document.getElementById("stylelayer")
+  titleTh.innerHTML = "";
 
-layer.innerHTML=""
-
+  titleTh.appendChild(title);
 }
 
-document.getElementById("Buttonerase").addEventListener("click",()=>{
+const isCousing = (n) => {
+  var cont = 2;
+  var cousing = true;
+  while (cont <= n / 2 && cousing) {
+    cousing = !(n % cont++ == 0);
+  }
 
-    eraseContent()
+  return cousing;
+};
 
-})
+document.querySelector("#btnExecute").addEventListener("click", () => {
+  const nOne = parseInt(document.querySelector("#nOne").value);
+  const nTwo = parseInt(document.querySelector("#nTwo").value);
 
-const aux= document.querySelector("#stylelayer")
+  const min = nOne < nTwo ? nOne : nTwo;
+  const max = nOne > nTwo ? nOne : nTwo;
 
-aux.style
-
-
-function addContent(){
-
-    const layered = document.querySelector("#stylelayer")
-
-    if (layered) {
-        const newText = prompt("Digite el nuevo contenido:");
-
-        if (newText !== null) {
-            const textNode = document.createTextNode(newText);
-            
-            layered.appendChild(textNode);
-        } else {
-            console.log("Operación cancelada por el usuario.");
-        }
-    } else {
-        console.error("No se encontró ningún elemento con la clase 'stylelayer'.");
-    }
+  begin(min, max);
+  const tBody = document.querySelector("#tBody");
+  tBody.innerHTML = ""
+  var cont = 1
+  var sum = 0
+  for (var number = min; number <= max; number++) {
     
-}
+    if (isCousing(number)) {
+      sum += number
 
-document.getElementById("Buttonadd").addEventListener("click",()=>{
+      const row = document.createElement("tr");
 
-    addContent()
+      const colNum = document.createElement("td");
+      colNum.appendChild(document.createTextNode(cont++));
+      row.appendChild(colNum);
 
-})
+      const colVal = document.createElement("td")
+      
 
-document.querySelector("#ButtonSumar").addEventListener("click", ()=>{
+      if(cont%2==0){
+        colVal.setAttribute("style","background-color:white ")
 
-    const One=  parseInt(document.getElementById("numOne").value)
-    const two= parseInt( document.getElementById("numTwo").value)
-    
-
-    alert("El resultado de la suma es igual a: "+(One+two)+ " !")
-
-
-})
-
-document.querySelector("#numOne").addEventListener('keypress', (event)=>{
-
-
-    if(/[^0-9]/.test(event.key)){
-
-        event.preventDefault()
-
-    }else{
+        colNum.setAttribute("style", "background-color: #CDE351")
+        
+      }else{
+        colVal.setAttribute("style","background-color:#3ACF62 ")
+        colNum.setAttribute("style", "background-color: white")
 
 
+      }
+      
+      colVal.appendChild( document.createTextNode(number))
+      row.appendChild(colVal)
+
+      tBody.appendChild(row);
+
+      
 
     }
+  }
 
-})
+  const titFoot = document.createTextNode(`Hay ${--cont} primos y la suma es ${sum}`)
+  
+
+  document.querySelector("#foot").innerHTML = ""
+  document.querySelector("#foot").appendChild(titFoot)
+});
